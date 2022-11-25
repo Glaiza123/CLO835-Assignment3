@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mongodb-aws
+  name: mysql-pod
 spec:
   volumes:
   - name: mongodb-data
