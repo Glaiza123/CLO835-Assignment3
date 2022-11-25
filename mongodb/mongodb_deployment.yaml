@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: mysql-deployment
 spec:
   replicas: 1
   selector:
@@ -11,15 +11,20 @@ spec:
     metadata:
       labels:
         application: mysql
-        version: 3.2.5
     spec:
       containers:
       - name: mysql
-        image: redis:3.2.5
+        image: 218146516368.dkr.ecr.us-east-1.amazonaws.com/mysql_ecr:v1.0
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: pw
         volumeMounts:
-        - mountPath: /data
+        - mountPath: /data/db
           name: mysql-data
       volumes:
         - name: mysql-data
           persistentVolumeClaim:
-            claimName: mysql-data
+            claimName: mysql-pvc
