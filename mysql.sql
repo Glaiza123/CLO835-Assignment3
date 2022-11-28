@@ -1,7 +1,7 @@
-CREATE IF NOT EXIST DATABASE employees;
+CREATE DATABASE IF NOT EXISTS employees;
 USE employees;
 
-CREATE TABLE IF NOT EXIST employee(
+CREATE TABLE IF NOT EXISTS employee(
 emp_id VARCHAR(20),
 first_name VARCHAR(20),
 last_name VARCHAR(20),
