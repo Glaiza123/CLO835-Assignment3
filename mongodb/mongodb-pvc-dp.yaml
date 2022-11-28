@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: mongodb-pvc 
 spec:
-  storageClassName: fast
+  storageClassName: localstorage
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
   accessModes:
     - ReadWriteOnce
